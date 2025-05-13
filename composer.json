@@ -1,0 +1,6 @@
+{
+  "name": "chill/fb-profile-guard",
+  "require": {
+    "vlucas/phpdotenv": "^5.5"
+  }
+}
