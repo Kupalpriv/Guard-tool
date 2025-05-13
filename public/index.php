@@ -1,10 +1,12 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-use Dotenv\Dotenv;
 
-
-$env = Dotenv::createImmutable(__DIR__ . '/../');
-$env->load();
+$envPath = __DIR__ . '/../.env';
+if (file_exists($envPath)) {
+    // Only load .env locally (Render uses actual environment variables)
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+    $dotenv->load();
+}
 
 $cookie = $_ENV['FB_COOKIE'] ?? '';
 ?>
