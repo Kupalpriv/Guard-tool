@@ -1,15 +1,3 @@
-<?php
-require __DIR__ . '/../vendor/autoload.php';
-
-$envPath = __DIR__ . '/../.env';
-if (file_exists($envPath)) {
-    // Only load .env locally (Render uses actual environment variables)
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-    $dotenv->load();
-}
-
-$cookie = $_ENV['FB_COOKIE'] ?? '';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +13,7 @@ $cookie = $_ENV['FB_COOKIE'] ?? '';
   <h1>Facebook Profile Guard</h1>
   <form action="guard.php" method="POST">
     <label for="cookie">Facebook Cookie:</label><br>
-    <textarea name="cookie" id="cookie" required><?php echo htmlspecialchars($cookie); ?></textarea>
+    <textarea name="cookie" id="cookie" required></textarea>
     <br>
     <button type="submit">Enable Profile Guard</button>
   </form>
